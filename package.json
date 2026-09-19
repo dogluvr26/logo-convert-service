@@ -1,0 +1,27 @@
+{
+  "name": "logo-convert-service",
+  "version": "1.0.0",
+  "private": true,
+  "description": "HTTP service that converts PDF, AI and EPS logo files to trimmed SVG with warnings, using unmodified MuPDF and Ghostscript (WASM).",
+  "license": "AGPL-3.0-or-later",
+  "author": "Strategic Gifting, LLC",
+  "repository": "github:dogluvr26/logo-convert-service",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "tsx --test test/convert.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@okathira/ghostpdl-wasm": "1.1.0",
+    "mupdf": "1.28.1"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^6.0.0",
+    "@types/node": "^25.5.0",
+    "@types/pdfkit": "^0.17.6",
+    "pdfkit": "^0.20.2",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3"
+  }
+}

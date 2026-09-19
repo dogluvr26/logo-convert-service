@@ -1,0 +1,18 @@
+[build]
+  command = "npm test"
+  publish = "public"
+
+[functions]
+  directory = "netlify/functions"
+
+[functions.convert]
+  # MuPDF and Ghostscript ship as WASM files their loaders read from their
+  # own folders at runtime, so they are deployed as real node_modules,
+  # unmodified.
+  external_node_modules = ["mupdf", "@okathira/ghostpdl-wasm"]
+
+# AGPL section 13: every response points to this program's source.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Source-Code = "https://github.com/dogluvr26/logo-convert-service"
