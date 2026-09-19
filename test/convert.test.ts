@@ -87,6 +87,8 @@ test("an empty first page is refused", async () => {
 
 const SECRET = "test-secret-0123456789";
 process.env.CONVERT_SECRET = SECRET;
+// Independent of the deployed site's settings (Netlify injects them into builds).
+delete process.env.ALLOWED_HOSTS;
 const { default: handler } = await import("../netlify/functions/convert.mts");
 
 /** The endpoint only accepts https links, so link-mode tests stub fetch
